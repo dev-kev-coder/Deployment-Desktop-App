@@ -1,23 +1,25 @@
 {
-  "name": "deployment-desktop-app",
-  "version": "1.0.0",
-  "description": "Desktop app to assist with basic deployment",
-  "main": "main.js",
+  "name": "desktop-deployment-app",
+  "private": true,
+  "version": "0.0.0",
+  "main": "./dist/main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "esbuild-cjs": "esbuild main.js --format=cjs --outfile=./dist/main.js",
+    "electron:dev": "set \"IS_IN_DEVELOPMENT=true\" && npm run esbuild-cjs && electron ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dev-kev-coder/Deployment-Desktop-App.git"
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "author": "Kevin Albarran",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dev-kev-coder/Deployment-Desktop-App/issues"
-  },
-  "homepage": "https://github.com/dev-kev-coder/Deployment-Desktop-App#readme",
   "devDependencies": {
-    "electron": "^23.1.0"
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "electron": "^23.1.1",
+    "esbuild": "^0.17.10",
+    "vite": "^4.1.0"
   }
 }
