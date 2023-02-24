@@ -3,8 +3,6 @@ import path from "path";
 
 const IS_DEV = process.env.IS_IN_DEVELOPMENT || false;
 
-console.log("running...");
-
 function createWindow() {
   // Create the main Electron window
   const win = new BrowserWindow({
@@ -20,7 +18,7 @@ function createWindow() {
     // If we are in development mode we load content from localhost server - vite
     // and open the developer tools
     win.loadURL("http://localhost:5173");
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
   } else {
     // In all other cases, load the index.html file from the dist folder
     win.loadURL(`file://${path.join(__dirname, "..", "dist", "index.html")}`);
