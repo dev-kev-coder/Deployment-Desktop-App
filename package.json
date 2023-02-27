@@ -1,25 +1,37 @@
 {
   "name": "desktop-deployment-app",
-  "private": true,
-  "version": "0.0.0",
-  "main": "./dist/main.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "esbuild-cjs": "esbuild main.js --format=cjs --outfile=./dist/main.js",
-    "electron:dev": "set \"IS_IN_DEVELOPMENT=true\" && npm run esbuild-cjs && electron ."
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "watch-wpp": "webpack --config webpack.common.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-kev-coder/Deployment-Desktop-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-kev-coder/Deployment-Desktop-App/issues"
+  },
+  "homepage": "https://github.com/dev-kev-coder/Deployment-Desktop-App#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "electron": "^23.1.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@vitejs/plugin-react": "^3.1.0",
-    "electron": "^23.1.1",
-    "esbuild": "^0.17.10",
-    "vite": "^4.1.0"
   }
 }

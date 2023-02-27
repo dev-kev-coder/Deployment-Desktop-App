@@ -1,8 +1,0 @@
-.tools-container {
-  background-color: grey;
-  height: 500px;
-  min-width: 500px;
-  margin: 0px 300px 0px 300px;
-  /* padding: 20px; */
-  flex-grow: 1;
-}
