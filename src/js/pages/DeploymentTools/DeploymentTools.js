@@ -7,6 +7,7 @@ import "./index.css";
 const DeploymentTools = () => {
   const handleDeploy = () => {
     electron.seerApi.deploySeer();
+    console.log("value");
   };
   const handleRevert = () => {
     electron.seerApi.revertSeer();
