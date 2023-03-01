@@ -5,6 +5,16 @@ import React from "react";
 import "./index.css";
 
 const DeploymentTools = () => {
+  const handleDeploy = () => {
+    electron.seerApi.deploySeer();
+  };
+  const handleRevert = () => {
+    electron.seerApi.revertSeer();
+  };
+  const handleNuclear = () => {
+    electron.seerApi.nuclearOption();
+  };
+
   return (
     <main className="deployment-tools">
       <div className="buttons-container">
@@ -12,9 +22,9 @@ const DeploymentTools = () => {
         <div className="buttons-row">
           <div className="buttons-column">
             <h2>SEER Code</h2>
-            <button>Deploy SEER</button>
-            <button>Revert SEER</button>
-            <button>Nuclear Option</button>
+            <button onClick={handleDeploy}>Deploy SEER</button>
+            <button onClick={handleRevert}>Revert SEER</button>
+            <button onClick={handleNuclear}>Nuclear Option</button>
           </div>
 
           <div className="buttons-column">
