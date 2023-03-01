@@ -3,7 +3,7 @@ const { dialog } = require("electron");
 
 const fileSystemHelper = {
   async deployNewSeerFiles() {
-    const selectedFolder = await openFileExplorer();
+    const selectedFolder = await openFileExplorer(); // this line awaits for the promise to resolve or reject
     console.log(selectedFolder);
   },
 };
