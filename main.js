@@ -1,6 +1,9 @@
 const { app, BrowserWindow, ipcMain, Notification } = require("electron");
 const path = require("path");
 
+// Utils
+const fileSystemHelper = require("./utils/fileSystemHelper");
+
 function createWindow() {
   const options = {
     width: 1200,
@@ -18,10 +21,8 @@ function createWindow() {
   window.loadFile("index.html");
 }
 
-ipcMain.on("notify", (event, message) => {
-  const options = { title: "Notification", body: message };
-  const notification = new Notification(options);
-  notification.show();
+ipcMain.on("deploySeer", (event) => {
+  fileSystemHelper.deployNewSeerFiles();
 });
 
 app.whenReady().then(createWindow);
