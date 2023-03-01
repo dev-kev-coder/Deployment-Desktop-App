@@ -1,11 +1,15 @@
 const { ipcRenderer, contextBridge } = require("electron");
 
 const apiOptions = {
-  notificationApi: {
-    sendNotifications(message) {
-      ipcRenderer.send("notify", message);
+  seerApi: {
+    deploySeer() {
+      ipcRenderer.send("deploySeer");
     },
+    revertSeer() {},
+    nuclearOption() {},
   },
+
+  sqlServerApi: {},
 };
 
 contextBridge.exposeInMainWorld("electron", apiOptions);
