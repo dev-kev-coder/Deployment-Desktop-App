@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Notification } = require("electron");
+const { app, BrowserWindow, ipcMain, contextBridge } = require("electron");
 const path = require("path");
 
 // Utils
@@ -21,8 +21,9 @@ function createWindow() {
   window.loadFile("index.html");
 }
 
-ipcMain.on("deploySeer", (event) => {
-  fileSystemHelper.deployNewSeerFiles();
+ipcMain.on("deploySeer", async (event) => {
+  const deploySuccesful = await fileSystemHelper.deployNewSeerFiles();
+  event.sender.send("fileSelected", deploySuccesful);
 });
 
 app.whenReady().then(createWindow);

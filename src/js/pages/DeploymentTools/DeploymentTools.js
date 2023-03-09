@@ -1,13 +1,19 @@
 // React
-import React from "react";
+import React, { useState } from "react";
+
+// Components
+import Loading from "../../shared/Loading/Loading";
 
 // Styles
 import "./index.css";
 
 const DeploymentTools = () => {
-  const handleDeploy = () => {
-    electron.seerApi.deploySeer();
-    console.log("value");
+  const [processing, setProcessing] = useState(false);
+
+  const handleDeploy = async () => {
+    setProcessing((prevState) => !prevState);
+    const value = await electron.seerApi.deploySeer();
+    setProcessing((prevState) => !prevState);
   };
   const handleRevert = () => {
     electron.seerApi.revertSeer();
@@ -18,6 +24,7 @@ const DeploymentTools = () => {
 
   return (
     <main className="deployment-tools">
+      {processing && <Loading />}
       <div className="buttons-container">
         <h1>Deployment Tools</h1>
         <div className="buttons-row">
